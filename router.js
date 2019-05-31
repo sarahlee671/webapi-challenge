@@ -102,21 +102,6 @@ router.put('/:id/actions', async(req,res) => {
     }    
 })
 
-// router.delete('/:id/actions/:id', (req, res) => {
-//         const id = req.params.id;
-//         projectData
-//             .remove(id)
-//             .then(id => {
-//                 if (id.length) {
-//                     res.status(404).json({message: "The action with the specified ID does not exist"})
-//                 } else {
-//                     res.status(200).json({ message: "successfully removed"})
-//                 }
-//             })
-//             .catch(error => {
-//                 res.status(500).json({error: "The action could not be removed"})
-//             })
-// })
 
 router.delete('/:id/actions/:id', async (req, res) => {
     try {
