@@ -26,13 +26,25 @@ Demonstrate your understanding of this Sprint's concepts by answering the follow
 
 - [ ] Mention two parts of Express that you learned about this week.
 
+    1.) Learned to build RESTful web services that work through JSON.
+    2.) Learned that express adds extra functionality like Routing and Middleware.
+
 - [ ] Describe Middleware?
 
+    Middleware is a function that can get the request and response and perform operations on them. They can either choose to move on to the next middleware or return a response back to the client. Middleware can change the request or response or even do nothing to it.
+
 - [ ] Describe a Resource?
+    
+    Everything is a resource. You can access each resource through a unique URI and they can have multiple representations. Communication is done using stateless protocols and management is done through HTTP methods.
+
 
 - [ ] What can the API return to help clients know if a request was successful?
 
+    The API can return HTTP status codes to show if it was successful or not such as status(200).
+
 - [ ] How can we partition our application into sub-applications?
+
+    We can partition our application into sub-application by using express Routers.
 
 ## Project Setup
 
