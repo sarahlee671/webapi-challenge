@@ -71,12 +71,22 @@ router.delete('/:id', async (req, res) => {
 
 router.get('/:id/actions', async (req, res) => {
     try {
-        const projectAction = await projectData.getProjectActions({project_id: req.params.id})
+        const projectAction = await projectData.getProjectActions(req.params.id)
         res.status(200).json(projectAction);
     } catch (error) {
         res.status(500).json({message: "Error getting actions"})
     }
-
 })
+
+router.post('/:id/actions', async(req,res) => {
+    const actionInfo = { ...req.body, project_id: req.params.id};
+    try {
+        const action = await actionData.insert(actionInfo);
+        res.status(201).json(action);
+    } catch(error) {
+        res.status(500).json({ message: "Error getting the actions for the project." })
+    }
+})
+
 
 module.exports = router;
