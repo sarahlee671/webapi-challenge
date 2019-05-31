@@ -18,17 +18,6 @@ router.get('/', (req,res) => {
     
 })
 
-// router.get('/:id', (req,res) => {
-//     projectData
-//         .getProjectActions(req.params.id)
-//         const actions = {project_id: project.id}
-//         .then(actions => {
-//             res.status(200).json({actions});
-//         })
-//         .catch(error => {
-//             res.status(500).json({error: "The action information could not be retrieved"})
-//         })
-// })
 
 router.post('/', (req,res) => {
     const { name, description } = req.body;
@@ -79,5 +68,15 @@ router.delete('/:id', async (req, res) => {
         });
       }
     });
+
+router.get('/:id/actions', async (req, res) => {
+    try {
+        const projectAction = await projectData.getProjectActions({project_id: req.params.id})
+        res.status(200).json(projectAction);
+    } catch (error) {
+        res.status(500).json({message: "Error getting actions"})
+    }
+
+})
 
 module.exports = router;
